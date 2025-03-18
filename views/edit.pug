@@ -1,0 +1,45 @@
+extends layout
+
+block content
+  h1 Edit Contact
+  form(action=`/${contact.id}/edit`, method="POST")
+    label(for="first_name") First Name:
+    input(type="text", name="first_name", value=contact.first_name, required)
+    br
+    label(for="last_name") Last Name:
+    input(type="text", name="last_name", value=contact.last_name, required)
+    br
+    label(for="phone_number") Phone Number:
+    input(type="text", name="phone_number", value=contact.phone_number, required)
+    br
+    label(for="email_address") Email Address:
+    input(type="email", name="email_address", value=contact.email_address, required)
+    br
+    label(for="street") Street:
+    input(type="text", name="street", value=contact.street)
+    br
+    label(for="city") City:
+    input(type="text", name="city", value=contact.city)
+    br
+    label(for="state") State:
+    input(type="text", name="state", value=contact.state)
+    br
+    label(for="zip") Zip:
+    input(type="text", name="zip", value=contact.zip)
+    br
+    label(for="country") Country:
+    input(type="text", name="country", value=contact.country)
+    br
+    label(for="contact_by_phone") Contact by Phone:
+    if Number(contact.contact_by_phone) === 1
+      input(type="checkbox", name="contact_by_phone", checked)
+    else
+      input(type="checkbox", name="contact_by_phone")
+    br
+    label(for="contact_by_email") Contact by Email:
+    if Number(contact.contact_by_email) === 1
+      input(type="checkbox", name="contact_by_email", checked)
+    else
+      input(type="checkbox", name="contact_by_email")
+    br
+    button(type="submit") Update Contact

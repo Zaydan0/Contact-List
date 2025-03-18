@@ -1,0 +1,31 @@
+extends layout
+
+block content
+  h1 Contact List
+  p
+    a(href="/create") Create a new contact
+  table
+    tr
+      th Name
+      th Phone
+      th Email
+      th Address
+      th(style="width:150px") Contact Pref.
+    each contact in contacts
+      tr
+        td
+          a(href=`/${contact.id}`) #{contact.first_name} #{contact.last_name}
+        td= contact.phone_number
+        td= contact.email_address
+        td
+          | #{contact.street}, #{contact.city}, #{contact.state}
+          br
+          | #{contact.zip}, #{contact.country}
+        td
+          label
+            input(type="checkbox", disabled, checked=contact.contact_by_phone)
+            | Phone
+          br
+          label
+            input(type="checkbox", disabled, checked=contact.contact_by_email)
+            | Email

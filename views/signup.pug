@@ -1,0 +1,23 @@
+extends layout.pug 
+
+block content
+  h1 Signup
+  if error
+    p(style="color:red") #{error}
+  form(action="/signup", method="POST")
+    label(for="first_name") First Name:
+    input(type="text", name="first_name", required)
+    br
+    label(for="last_name") Last Name:
+    input(type="text", name="last_name", required)
+    br
+    label(for="username") Username:
+    input(type="text", name="username", required)
+    br
+    label(for="password") Password:
+    input(type="password", name="password", required)
+    br
+    label(for="password2") Confirm Password:
+    input(type="password", name="password2", required)
+    br
+    button(type="submit") Signup

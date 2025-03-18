@@ -1,0 +1,34 @@
+extends layout
+
+block content
+  h1 Contact Info
+  a(href="/") Back to list
+  h2 #{contact.first_name} #{contact.last_name}
+  p
+    strong Phone number:
+    |  #{contact.phone_number}
+    br
+    if contact.contact_by_phone
+      | May be contacted by phone or text
+    else
+      | May NOT be contacted by phone or text
+  p
+    strong Email address:
+    |  #{contact.email_address}
+    br
+    if contact.contact_by_email
+      | May be contacted by email
+    else
+      | May NOT be contacted by email
+  p
+    strong Address:
+    br
+    | #{contact.street}, #{contact.city}, #{contact.state}
+    br
+    | #{contact.zip}, #{contact.country}
+    br
+    | May NOT be contacted by mail
+  p
+    a(href=`/${contact.id}/edit`) Edit contact
+    |  |
+    a(href=`/${contact.id}/delete`) Delete contact
